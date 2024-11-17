@@ -67,10 +67,16 @@ public class Administrador {
     }
 
     public void generarReporte(ArrayList<Transaccion> transacciones, String fechaInicio, String fechaFin) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    
+        LocalDate fechaInicioLocalDate = LocalDate.parse(fechaInicio, formatter);
+        LocalDate fechaFinLocalDate = LocalDate.parse(fechaFin, formatter);
+    
         System.out.println("Generando reporte de transacciones desde " + fechaInicio + " hasta " + fechaFin);
+    
         for (Transaccion transaccion : transacciones) {
-            if (transaccion.getFecha().compareTo(fechaInicio) >= 0 &&
-                transaccion.getFecha().compareTo(fechaFin) <= 0) {
+            if (transaccion.getFecha().compareTo(fechaInicioLocalDate) >= 0 &&
+                transaccion.getFecha().compareTo(fechaFinLocalDate) <= 0) {
                 System.out.println(transaccion);
             }
         }
