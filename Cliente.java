@@ -50,3 +50,9 @@ public class Cliente {
     }
 
 }
+
+        return "Cliente [nombre=" + nombre + ", identificacion=" + identificacion + ", telefono=" + telefono
+                + ", email=" + email + "]";
+    }
+
+}
