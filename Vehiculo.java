@@ -7,10 +7,9 @@ public abstract class Vehiculo {
     private int velocidadMaxima;
     private int cilindraje;
     private boolean transmisionAutomatica;
+    private double precioVenta, precioAlquiler, precioCompra;
 
-    // Constructor ajustado: eliminamos el parámetro 'combustible' redundante.
-    public Vehiculo(TipoCombustible tipoCombustible, String marca, boolean nuevo, String modelo, 
-                    int cambios, int velocidadMaxima, int cilindraje, boolean transmisionAutomatica) {
+    public Vehiculo(TipoCombustible tipoCombustible, String marca, boolean nuevo, String modelo, int cambios, int velocidadMaxima, int cilindraje, boolean transmisionAutomatica, double precioVenta, double precioAlquiler, double precioCompra) {
         this.tipoCombustible = tipoCombustible;
         this.marca = marca;
         this.nuevo = nuevo;
@@ -19,9 +18,11 @@ public abstract class Vehiculo {
         this.velocidadMaxima = velocidadMaxima;
         this.cilindraje = cilindraje;
         this.transmisionAutomatica = transmisionAutomatica;
+        this.precioVenta = precioVenta;
+        this.precioAlquiler = precioAlquiler;
+        this.precioCompra = precioCompra;
     }
 
-    // Métodos getter y setter
     public TipoCombustible getTipoCombustible() {
         return tipoCombustible;
     }
@@ -86,14 +87,44 @@ public abstract class Vehiculo {
         this.transmisionAutomatica = transmisionAutomatica;
     }
 
-    // Método abstracto que cada subclase debe implementar
+    public double getPrecioVenta() {
+        return precioVenta;
+    }
+
+    public void setPrecioVenta(double precioVenta) {
+        this.precioVenta = precioVenta;
+    }
+
+    public double getPrecioAlquiler() {
+        return precioAlquiler;
+    }
+
+    public void setPrecioAlquiler(double precioAlquiler) {
+        this.precioAlquiler = precioAlquiler;
+    }
+
+    public double getPrecioCompra() {
+        return precioCompra;
+    }
+
+    public void setPrecioCompra(double precioCompra) {
+        this.precioCompra = precioCompra;
+    }
+
+    public boolean pasarRevisionTecnica() {
+        return true;
+    }
+
     public abstract String obtenerInformacion();
 
-    // Método toString sobrecargado para mostrar información detallada del vehículo
     @Override
     public String toString() {
-        return "Vehiculo [tipoCombustible=" + tipoCombustible + ", marca=" + marca + ", nuevo=" + nuevo +
-               ", modelo=" + modelo + ", cambios=" + cambios + ", velocidadMaxima=" + velocidadMaxima +
-               ", cilindraje=" + cilindraje + ", transmisionAutomatica=" + transmisionAutomatica + "]";
+        return "Vehiculo [tipoCombustible=" + tipoCombustible + ", marca=" + marca + ", nuevo=" + nuevo + ", modelo="
+                + modelo + ", cambios=" + cambios + ", velocidadMaxima=" + velocidadMaxima + ", cilindraje="
+                + cilindraje + ", transmisionAutomatica=" + transmisionAutomatica + ", precioVenta=" + precioVenta
+                + "]";
     }
+
+    
+
 }
